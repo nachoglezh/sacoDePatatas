@@ -3,9 +3,12 @@ package com.spbootsample.spBootDemo.domain;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @Builder
-public class GetHinchableResponse {
+public class ListHinchablesResponseDTO {
 
-    HinchableDTO hinchableDTO;
+    List<HinchableDTO> hinchableList;
+
 }

@@ -2,9 +2,9 @@ package com.spbootsample.spBootDemo.controller;
 
 import com.spbootsample.spBootDemo.constant.Urls;
 import com.spbootsample.spBootDemo.controller.facade.HinchableFacade;
-import com.spbootsample.spBootDemo.domain.GetHinchableResponse;
-import com.spbootsample.spBootDemo.domain.ListHinchablesResponse;
-import com.spbootsample.spBootDemo.model.User;
+import com.spbootsample.spBootDemo.domain.GetHinchableResponseDTO;
+import com.spbootsample.spBootDemo.domain.ListHinchablesResponseDTO;
+import com.spbootsample.spBootDemo.model.UserEntity;
 import com.spbootsample.spBootDemo.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,24 +30,24 @@ public class HinchableController {
     UserService userService;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    ListHinchablesResponse listHinchables() {
+    ListHinchablesResponseDTO listHinchables() {
         log.info("{} List Hinchables operacion", LOG_PREFIX);
         return hinchableFacade.listHinchables();
     }
 
     @GetMapping(path = Urls.GET_HINCHABLE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public GetHinchableResponse getHinchable(@PathVariable("id") Long hinchableId) {
+    public GetHinchableResponseDTO getHinchable(@PathVariable("id") Long hinchableId) {
         log.info("{} Get Hinchables operacion con id: {}", LOG_PREFIX, hinchableId);
         return hinchableFacade.getHinchable(hinchableId);
     }
 
     @GetMapping("/connectionTest_0")
     public String queryDatabase() {
-        List<User> users = userService.getAllUsers(); // Cambia esta consulta según tus necesidades
+        List<UserEntity> users = userService.getAllUsers(); // Cambia esta consulta según tus necesidades
 
         // Construye la respuesta a partir de los resultados de la consulta
         StringBuilder response = new StringBuilder("Usuarios en la base de datos:\n");
-        for (User user : users) {
+        for (UserEntity user : users) {
             response.append(user.toString()).append(")\n");
         }
 

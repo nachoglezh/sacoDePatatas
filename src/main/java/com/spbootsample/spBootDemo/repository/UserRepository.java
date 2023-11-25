@@ -1,15 +1,14 @@
 /**
- * 
+ *
  */
 package com.spbootsample.spBootDemo.repository;
 
+import com.spbootsample.spBootDemo.model.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.spbootsample.spBootDemo.model.User;
-
 /**
- * 
+ *
  */
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
     // Puedes agregar métodos personalizados si es necesario
 }

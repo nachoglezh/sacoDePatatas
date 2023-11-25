@@ -1,11 +1,11 @@
 package com.spbootsample.spBootDemo.controller.facade;
 
-import com.spbootsample.spBootDemo.domain.GetHinchableResponse;
-import com.spbootsample.spBootDemo.domain.ListHinchablesResponse;
+import com.spbootsample.spBootDemo.domain.GetHinchableResponseDTO;
+import com.spbootsample.spBootDemo.domain.ListHinchablesResponseDTO;
 
 public interface HinchableFacade {
 
-    ListHinchablesResponse listHinchables();
+    ListHinchablesResponseDTO listHinchables();
 
-    GetHinchableResponse getHinchable(Long hinchableId);
+    GetHinchableResponseDTO getHinchable(Long hinchableId);
 }

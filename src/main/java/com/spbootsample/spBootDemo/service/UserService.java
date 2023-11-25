@@ -1,29 +1,25 @@
 /**
- * 
+ *
  */
 package com.spbootsample.spBootDemo.service;
 
-import java.util.List;
-
+import com.spbootsample.spBootDemo.model.UserEntity;
+import com.spbootsample.spBootDemo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.spbootsample.spBootDemo.model.User;
-import com.spbootsample.spBootDemo.repository.UserRepository;
-
-import lombok.Getter;
-import lombok.Setter;
+import java.util.List;
 
 /**
- * 
+ *
  */
 @Service
 public class UserService {
 
-	/**
-	 * 
-	 */
-	private final UserRepository userRepository;
+    /**
+     *
+     */
+    private final UserRepository userRepository;
 
     @Autowired
     public UserService(UserRepository userRepository) {
@@ -31,15 +27,15 @@ public class UserService {
     }
 
     // Métodos de servicio para realizar operaciones específicas de la aplicación
-    public User createUser(User user) {
+    public UserEntity createUser(UserEntity user) {
         return userRepository.save(user);
     }
 
-    public User getUserById(Long id) {
+    public UserEntity getUserById(Long id) {
         return userRepository.findById(id).orElse(null);
     }
 
-    public List<User> getAllUsers() {
+    public List<UserEntity> getAllUsers() {
         return userRepository.findAll();
     }
 }
